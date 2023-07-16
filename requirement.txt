@@ -7,3 +7,9 @@ datasets
 tqdm 
 evaluate 
 huggingface_hub
+nltk
+bs4
+gensim
+imblearn
+plotly
+sklearn
