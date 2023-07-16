@@ -1,0 +1,9 @@
+contractions 
+transformers 
+torch 
+sentencepiece 
+accelerate>=0.20.1 
+datasets 
+tqdm 
+evaluate 
+huggingface_hub
