@@ -76,8 +76,8 @@ model.resize_token_embeddings(len(tokenizer))
 train_size = int(0.8 * len(tweet_dataset))
 train_data, val_data = random_split(tweet_dataset, [train_size, len(tweet_dataset) - train_size])
 learning_rate = 1e-5
-num_epochs = 15
-batch_size = 100
+num_epochs = 1
+batch_size = 1000
 loss_function = nn.CrossEntropyLoss()
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 train_loader = DataLoader(train_data, batch_size=batch_size, shuffle=True)
@@ -94,9 +94,9 @@ def validation_accuracy():
 
     with torch.no_grad():
         for batch in val_loader:
-            batch_input_ids = batch["input_ids"].to('cuda')
-            batch_attention_mask = batch["attention_mask"].to('cuda')
-            batch_labels = batch["labels"].to('cuda')
+            batch_input_ids = batch["input_ids"].to(device)
+            batch_attention_mask = batch["attention_mask"].to(device)
+            batch_labels = batch["labels"].to(device)
 
             outputs = model(input_ids=batch_input_ids, attention_mask=batch_attention_mask)
             logits = outputs.logits
@@ -123,12 +123,15 @@ for epoch in range(num_epochs):
         outputs = model(input_ids=batch_input_ids, attention_mask=batch_attention_mask).logits
         loss = loss_function(outputs, batch_labels.squeeze())
         total_loss += loss.item()
+        print(total_loss)
         loss.backward()
         optimizer.step()
+        model.save_pretrained("./model")
+        tokenizer.save_pretrained("./model")
 
     avg_loss = total_loss / len(train_loader)
     val_loss = validation_accuracy()
     print(f"Epoch {epoch+1}: Average training Loss = {avg_loss} Average validation accuracy = {val_loss}")
     model.save_pretrained("./model")
 print(f"Training Completed")
-tokenizer.save_pretrained("/content/model")
+tokenizer.save_pretrained("./model")
