@@ -123,11 +123,8 @@ for epoch in range(num_epochs):
         outputs = model(input_ids=batch_input_ids, attention_mask=batch_attention_mask).logits
         loss = loss_function(outputs, batch_labels.squeeze())
         total_loss += loss.item()
-        print(total_loss)
         loss.backward()
         optimizer.step()
-        model.save_pretrained("./model")
-        tokenizer.save_pretrained("./model")
 
     avg_loss = total_loss / len(train_loader)
     val_loss = validation_accuracy()
