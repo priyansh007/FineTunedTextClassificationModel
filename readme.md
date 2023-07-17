@@ -1,6 +1,11 @@
-# Project Summary
+# Fine Tuned Text Classification Model
 
 This project focuses on classifying the emotions expressed in tweets using the [Emotion Detection from Text dataset](https://www.kaggle.com/datasets/pashupatigupta/emotion-detection-from-text) available on Kaggle. The goal is to develop a model that accurately predicts the emotions associated with different tweets.
+
+## Setup
+To set up the project environment, run the following command:
+1. Install the required libraries by running the following command
+`!pip install -r requirement.txt`
 
 ## Dataset Balancing and Preprocessing
 
