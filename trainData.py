@@ -15,10 +15,6 @@ from huggingface_hub import notebook_login, HfApi
 #0: 'anger', 1: 'love', 2: 'neutral', 3: 'positive', 4: 'sadness', 5: 'surprise', 6: 'worry'
 dataframe = pd.read_csv('./dataset.csv')
 
-#Remapping it such that
-#0: 'love', 1: 'positive', 2: 'neutral', 3: 'surprise', 4: 'sadness', 5: 'anger', 6: 'worry'
-category_mapping = {0: 5, 1: 0, 2: 2,3: 1,4: 4,5: 3,6: 6}
-
 dataframe['sentiment'] = dataframe['sentiment'].replace(category_mapping)
 dataframe.dropna()
 X_values = dataframe[['content']]
@@ -63,8 +59,8 @@ models = ["nlptown/bert-base-multilingual-uncased-sentiment",
           "microsoft/deberta-large-mnli"]
 
 model = AutoModelForSequenceClassification.from_pretrained(models[2])
-id2label = {0: 'love', 1: 'positive', 2: 'neutral', 3: 'surprise', 4: 'sadness', 5: 'anger', 6: 'worry'}
-label2id = {'love':0, 'positive':1,'neutral':2, 'surprise':3, 'sadness':4, 'anger':5, 'worry': 6}
+id2label = #To-Do
+label2id = #To-Do
 num_labels = 7
 model.classifier = nn.Sequential(
     nn.Linear(model.config.hidden_size, num_labels)
