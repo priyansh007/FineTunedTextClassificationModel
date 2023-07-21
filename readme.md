@@ -4,9 +4,9 @@ This project focuses on classifying the emotions expressed in tweets using the [
 
 ## Final product and website code
 
-Final website code can be found at Replit flask project: https://replit.com/@2023-summer-nlp/Proud-Porcupines#bargraph.py 
+Final website code can be found at Replit flask project: https://replit.com/@2023-summer-nlp/Proud-Porcupines-2#main.py
 
-Website: https://proud-porcupines.2023-summer-nlp.repl.co/index.html
+Website: https://proud-porcupines-2.2023-summer-nlp.repl.co/
 
 ## Setup
 To set up the project environment, run the following command:
