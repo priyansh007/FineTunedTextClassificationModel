@@ -2,6 +2,11 @@
 
 This project focuses on classifying the emotions expressed in tweets using the [Emotion Detection from Text dataset](https://www.kaggle.com/datasets/pashupatigupta/emotion-detection-from-text) available on Kaggle. The goal is to develop a model that accurately predicts the emotions associated with different tweets.
 
+# Final product and website code
+
+Final website code can be found at Replit flask project: https://replit.com/@2023-summer-nlp/Proud-Porcupines#bargraph.py 
+Website: https://proud-porcupines.2023-summer-nlp.repl.co/index.html
+
 ## Setup
 To set up the project environment, run the following command:
 1. Install the required libraries by running the following command
